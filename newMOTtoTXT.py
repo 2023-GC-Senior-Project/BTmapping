@@ -2,7 +2,7 @@ import pandas as pd
 
 # 텍스트 파일 읽기
 data = []
-with open(r'GuardianWatch\2023_09_23_09_02_19.txt', 'r') as file:
+with open(r'BTmapping\2023_09_23_09_02_19.txt', 'r') as file:
     for line in file:
         line = line.strip().split(',')
         data.append(line)
@@ -23,6 +23,6 @@ first_last_times = df.groupby('objectId')['currentTime'].agg(['first', 'last']).
 first_last_times = first_last_times.sort_values(by=['last', 'first'], ascending=[True, False])
 
 # 정렬된 데이터를 'first_last_times.csv' 파일에 저장
-first_last_times.to_csv('./GuardianWatch/first_last_times.txt', index=False)
+first_last_times.to_csv('./BTmapping/transMOT.txt', index=False)
 
 print(first_last_times)

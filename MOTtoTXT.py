@@ -37,7 +37,7 @@ def save_last_object_data_to_file(data_dict, output_file):
                 file.write(f"{current_time},{object_id},{bbox_x},{bbox_y}\n")
 
 if __name__ == "__main__":
-    file_path = r"C:\Users\sts07\OneDrive\Desktop\Code\GuardianWatch\2023_09_23_09_02_19.txt"  # 파일 경로를 적절하게 수정하세요.
+    file_path = r"BTmapping\2023_09_23_09_02_19.txt"  # 파일 경로를 적절하게 수정하세요.
     data_dict = read_data_from_file(file_path)
     print_last_object_data(data_dict)
-    save_last_object_data_to_file(data_dict, './GuardianWatch/transMOT.txt')
+    save_last_object_data_to_file(data_dict, './BTmapping/transMOT.txt')

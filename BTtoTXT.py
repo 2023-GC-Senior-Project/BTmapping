@@ -32,7 +32,7 @@ def save_max_rssi_and_mac_to_file_and_print(data_dict, output_file):
                 print(f"{current_time},{device_name},{mac_address},{rssi}")
 
 if __name__ == "__main__":
-    input_file_path = r"C:\Users\sts07\OneDrive\Desktop\Code\GuardianWatch\BT.txt"  # 입력 파일 경로를 적절하게 수정하세요.
-    output_file_path = './GuardianWatch/transBT.txt' # 출력 파일 경로를 적절하게 수정하세요.
+    input_file_path = r"BTmapping\BT.txt"  # 입력 파일 경로를 적절하게 수정하세요.
+    output_file_path = './BTmapping/transBT.txt' # 출력 파일 경로를 적절하게 수정하세요.
     data_dict = read_data_from_file(input_file_path)
     save_max_rssi_and_mac_to_file_and_print(data_dict, output_file_path)

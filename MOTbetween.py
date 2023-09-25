@@ -16,7 +16,7 @@ invalid_start = df[df['first'] != start]
 invalid_end = df[df['last'] != end]
 
 # 결과를 저장할 파일명 지정
-output_filename = r'./BTmapping/checkBT.txt'
+output_filename = r'./BTmapping/MOTbetween.txt'
 
 # 결과를 저장할 문자열 초기화
 result = ""

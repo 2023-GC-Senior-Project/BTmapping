@@ -32,18 +32,9 @@
 # behavior String
 ### frameId, objectId, coordX, coordY, behavior, currentTime
 
-###
-## 블루투스 결과를 통해 MOT의 결과 값을 수정해야 함.
-## 블루투스 rssi 값의 in: A, out: B라 가정.
-## rssi값에 의해 arr에서 값 변경 (0,1,2) 0:out , 1:in , 2:in but not detect
-## in out 은 무조건 rssi로 판단.
-## in 이지만, MOT에서 객체가 줄어드는 경우 = 무언가에 가려져 있다 판단. arr[n]=2;
-## 이후 내부에서 재 인식되는 객체는 기존의 블루투스와 연결.
-###
-
-### deviceName, mac_address, rssi, currentTime
-
-# 1. mot 기준 탐지 객체의 수가 변화 된 경우 bluetooth 값 확인하여 id 배치 
-# 인원은 총 5명이라 가정
+######
+# 1.BTtoTXT.py : BT.txt -> transBT.txt
+# 2.newMOTtoTXT.py : 2023_09_23_09_02_19.txt -> transMOT.txt
+# 3.MOTbetween.py : transMOT.txt -> MOTbetween.txt
+# 3.1 viewMOT.py : view MOTbetween with graph
 # 
-

@@ -24,7 +24,7 @@ first_last_times['duration'] = (first_last_times['last'] - first_last_times['fir
 first_last_times = first_last_times[first_last_times['duration'] >= 5]
 
 # last가 빠르고 first가 느린 순으로 정렬
-first_last_times = first_last_times.sort_values(by=['last', 'first'], ascending=[True, False])
+first_last_times = first_last_times.sort_values(by=['objectId'], ascending=[True])
 
 # duration 열을 삭제
 first_last_times = first_last_times.drop(columns=['duration'])

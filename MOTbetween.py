@@ -1,37 +1,40 @@
-import pandas as pd
+# 입력 파일 이름과 출력 파일 이름 설정
+input_file = r"BTmapping\transMOT.txt"
+output_file = r"BTmapping\MOTbetween.txt"
 
-# CSV 파일을 DataFrame으로 읽기
-df = pd.read_csv(r'BTmapping\transMOT.txt')
+# 입력 파일 열기
+with open(input_file, "r") as f:
+    lines = f.readlines()
 
-# 시간 형식을 datetime으로 변환
-df['first'] = pd.to_datetime(df['first'])
-df['last'] = pd.to_datetime(df['last'])
+# 출력 파일 열기
+with open(output_file, "w") as f:
+    # 헤더 쓰기
+    f.write("objectId,time,value\n")
 
-# start와 end 계산
-start = df['first'].min()
-end = df['last'].max()
+    # 각 줄을 파싱하고 변환하여 출력 파일에 쓰기
+    for line in lines[1:]:  # 첫 번째 줄은 헤더이므로 건너뜁니다.
+        parts = line.strip().split(',')
+        objectId = parts[0]
+        first_time = parts[1]
+        last_time = parts[2]
 
-# start와 end가 아닌 objectId 찾기
-invalid_start = df[df['first'] != start]
-invalid_end = df[df['last'] != end]
+        # objectId, 시간 및 value를 출력 파일에 쓰기
+        f.write(f"{objectId},{first_time},first\n")
+        f.write(f"{objectId},{last_time},last\n")
 
-# 결과를 저장할 파일명 지정
-output_filename = r'./BTmapping/MOTbetween.txt'
 
-# 결과를 저장할 문자열 초기화
-result = ""
+# 입력 파일 열기
+with open(output_file, "r") as f:
+    lines = f.readlines()
 
-if not invalid_start.empty:
-    result += "objectId,first\n"
-    result += invalid_start[['objectId', 'first']].to_csv(index=False, header=False)
+# 헤더를 제외한 데이터 정렬
+sorted_lines = sorted(lines[1:], key=lambda line: line.split(',')[1])
 
-if not invalid_end.empty:
-    result += "objectId,last\n"
-    result += invalid_end[['objectId', 'last']].to_csv(index=False, header=False)
+# 출력 파일 열기
+with open(output_file, "w") as f:
+    # 헤더 쓰기
+    f.write(lines[0])
 
-# 빈 줄 제거
-result = "\n".join([line for line in result.splitlines() if line.strip()])
-
-# 결과를 파일로 저장
-with open(output_filename, 'w') as output_file:
-    output_file.write(result)
+    # 정렬된 데이터 쓰기
+    for line in sorted_lines:
+        f.write(line)

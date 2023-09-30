@@ -34,7 +34,13 @@
 
 ######
 # 1.BTtoTXT.py : BT.txt -> transBT.txt
+
 # 2.newMOTtoTXT.py : 2023_09_23_09_02_19.txt -> transMOT.txt
+
 # 3.MOTbetween.py : transMOT.txt -> MOTbetween.txt
-# 3.1 viewMOT.py : view MOTbetween with graph
-# 
+#   3.1 viewMOT.py : view MOTbetween with graph
+#   3.2 transBT_modify.py : transBT.txt -> transBT_modified.txt
+
+# 4.mapping.py :  MOTbetween + transBT_modified-> mapping.txt
+
+# 5.transBEV.py : 

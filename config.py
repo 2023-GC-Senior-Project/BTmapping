@@ -42,5 +42,3 @@
 #   3.2 transBT_modify.py : transBT.txt -> transBT_modified.txt
 
 # 4.mapping.py :  MOTbetween + transBT_modified-> mapping.txt
-
-# 5.transBEV.py : 

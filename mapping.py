@@ -37,7 +37,7 @@ mapping = {}
 max_last_times = {}
 
 # MOTbetween.txt 파일 읽기
-with open(r'BTmapping\MOTbetween.txt', mode='r') as mot_file:
+with open(r'BTmapping/MOTbetween.txt', mode='r') as mot_file:
     mot_reader = csv.DictReader(mot_file, delimiter=',')
     for row in mot_reader:
         object_id = int(row['objectId'])
@@ -53,7 +53,7 @@ with open(r'BTmapping\MOTbetween.txt', mode='r') as mot_file:
             mapping[object_id]['last'] = time
 
 # transBT_modified.txt 파일 읽기
-with open(r'BTmapping\transBT_modified.txt', mode='r') as trans_file:
+with open(r'BTmapping/transBT_modified.txt', mode='r') as trans_file:
     for line in trans_file:
         fields = line.strip().split(',')
         time = fields[0]
@@ -90,6 +90,6 @@ for obj in mapping:
     final_mapping[obj] = mapping[obj]['deviceName']
 
 # 딕셔너리를 텍스트 파일에 저장
-with open(r'BTmapping\mapping.txt', 'w') as txt_file:
+with open(r'BTmapping/mapping.txt', 'w') as txt_file:
     for key, value in final_mapping.items():
         txt_file.write(f"{key},{value}\n")

@@ -1,5 +1,5 @@
 # BTmapping
-## : Use RSSi Value to  have 1 ID per 1 person.
+## : Use RSSi Value to  have 1 ID per 1 person, to reduce `Re-ID` problem in MOT.
 
 <br>
 
